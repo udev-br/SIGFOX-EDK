@@ -9,3 +9,6 @@ In this folder's files, you'll find three images:
 * __EDK-schematic-adc.png__ , a schematic file that shows the position of each resistor on the EDK board.
 * __EDK-electrical-adc-original.png__ , an electrical diagram showing the _default_ EDK configuration.
 * __EDK-electrical-adc-DS18B20.png__ , an electrical diagram showing how the components should be arranged to allow use of the DS18B20 probe.
+
+Note: In the electrical diagram, some components are marked __"NM"__. This means there should be __NO COMPONENT__ at that position.
+<br> Think of it as "do <strong>N</strong>ot <strong>M</strong>ount".
