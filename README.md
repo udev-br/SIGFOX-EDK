@@ -152,15 +152,17 @@ To properly use the analog input with the DS18B20 Temperature Sensor, the EDK ha
 
 | Function | Description | Parameters | Return type |
 | --- | --- | --- | --- |
-| fnDS18B20_Init() | Initializes the DS18B20 sensor. Returns __true__ when no errors occur, and __false__ if the wire is not present or some other error occurs | None | __bool__<sup><a name="1ds18b20up">[1](#1ds18b20)</a></sup> |
-| fnDS18B20_Measure_Start_Blocking_Mode() | Begins a new temperature measurement, in _blocking mode_. | None | __bool__<sup><a name="1ds18b20up">[1](#1ds18b20)</a></sup> |
-| fnDS18B20_Measure_Start_Callback_Mode() | Begins a new temperature measurement, in _callback mode_. | None | __bool__<sup><a name="2ds18b20up">[2](#2ds18b20)</a></sup> |
+| fnDS18B20_Init(_uint8_t_ __u8_devices__) | Initializes the DS18B20 sensor(s). Returns __true__ when no errors occur, and __false__ if the wire is not present or some other error occurs | __u8_devices__: Number of probes connected (in parallel)<sup><a name="1ds18b20up">[1](#1ds18b20)</a></sup> | __bool__<sup><a name="2ds18b20up">[2](#2ds18b20)</a></sup> |
+| fnDS18B20_Measure_Start_Blocking_Mode() | Begins a new temperature measurement, in _blocking mode_. | None | __bool__<sup><a name="2ds18b20up">[2](#2ds18b20)</a></sup> |
+| fnDS18B20_Measure_Start_Callback_Mode() | Begins a new temperature measurement, in _callback mode_. | None | __bool__<sup><a name="3ds18b20up">[3](#3ds18b20)</a></sup> |
 | fnDS18B20_Measure_Done_Callback() | This function gets called automatically after a measurement in _callback mode_ is finished. | None | None |
-| fnDS18B20_Get_Data_Pointer() | Returns a _const_ pointer to the struct that has all the raw data obtained. Check the header for info on the struct. | None | _const_ __st_ds18b20_data_t*__ |
-| fnDS18B20_Get_Temperature() | Returns a _float_ in proper temperature format, in degrees Celsius. | None | __float__ |
+| fnDS18B20_Get_Data_Pointer(_uint8_t_ __u8_channel__) | Returns a _const_ pointer to the struct that has all the raw data obtained, in the probe corresponding to __u8_channel__. Check the header for info on the struct. | __u8_channel__: Channel of the probe corresponding to the data pointer.<sup><a name="4ds18b20up">[4](#4ds18b20)</a></sup> | _const_ __st_ds18b20_data_t*__ |
+| fnDS18B20_Get_Temperature(_uint8_t_ __u8_channel__) | Returns a _float_ in proper temperature format, in degrees Celsius. | None | __float__ |
 
-<sup><a name="1ds18b20">[1](#1ds18b20up)</a></sup><sub>Returns __true__ when it ends without errors.</sub>
-<br><sup><a name="2ds18b20">[2](#2ds18b20up)</a></sup><sub>Returns __true__ after calling the _Callback_ function.</sub>
+<sup><a name="1ds18b20">[1](#1ds18b20up)</a></sup><sub>It is possible to connect multiple DS18B20 probes at once, in parallel. The platform can handle up to 8 probes.</sub>
+<br><sup><a name="2ds18b20">[2](#2ds18b20up)</a></sup><sub>Returns __true__ when it ends without errors.</sub>
+<br><sup><a name="3ds18b20">[3](#3ds18b20up)</a></sup><sub>Returns __true__ after calling the _Callback_ function.</sub>
+<br><sup><a name="4ds18b20">[4](#4ds18b20up)</a></sup><sub>The probes' channels are addressed from 0 to 7. To be able to identify which probe is which, apart from manipulating the temperature and observing results, it is necessary to connect the probes one by one, identify their ROM ID using the __Get_Data_Pointer__ function, by accessing the __au8_rom_id__ integer present in this struct, and labelling each probe physically.</sub>
 
 <sub>[Back to top](#top)</sub>
 

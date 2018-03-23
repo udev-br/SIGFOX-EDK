@@ -44,7 +44,9 @@ void fnUSER_Setup ( void )
 {
    // Code within this context will execute ONCE.
    fnCONSOLE_USB_Init( );
-   fnDS18B20_Init( );
+   
+   // This function initializes ONE DS18B20 probe.
+   fnDS18B20_Init( 1 );
 }   
 
 void fnUSER_Loop ( void )
@@ -78,9 +80,10 @@ void fnDS18B20_Measure_Done_Callback ( void )
    if ( fnDS18B20_Get_Data_Pointer()->un_last_error.u8_value == 0 )
    {
       fnDEBUG_Const_String( "Status OK \r\n" );
-      fnDEBUG_Uint16_Value( "Temp: ", fnDS18B20_Get_Temperature() * 1000, " C; \r\n");
+      fnDEBUG_Uint16_Value( "Temp: ", fnDS18B20_Get_Temperature( 0 ) * 1000, " C; \r\n");
       // Since the Debug can't print a float, we print the int *1000 to have a result
       // in a format we don't lose information. (e.g. displayed as "24565 C", it means "24.565 C")
+      // The channel specified is 0 because we have only one probe, and their addressing starts at 0.
    }
    else if ( fnDS18B20_Get_Data_Pointer()->un_last_error.u8_value != 0 )
    {

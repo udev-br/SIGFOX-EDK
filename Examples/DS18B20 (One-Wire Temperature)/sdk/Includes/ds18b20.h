@@ -9,13 +9,13 @@
 
 #include <stdint.h>
 #include <stdbool.h>
-#include <math.h>
 
 
 /*************************************************************************************************/
 /*    DEFINES                                                                                    */
 /*************************************************************************************************/
-   
+
+
 /*************************************************************************************************/
 /*    TYPEDEFS                                                                                   */
 /*************************************************************************************************/
@@ -84,15 +84,23 @@ typedef struct {
 /*    EXTERNAL PROTOTYPES                                                                        */
 /*************************************************************************************************/
 
-
 // The Init function configures and readies the DS18B20 temperature sensor. Call it before
 // using the sensor in whichever application.
-bool fnDS18B20_Init ( void );
+// The parameter to be passed is the number of probes currently connected (in parallel), from 1 to 8.
+bool fnDS18B20_Init ( uint8_t u8_channel );
+
+// Get_Data_Pointer will return the raw data that is in the temperature registers in the channel specified.
+// This function is used to identify probes individually, using their au8_rom_id value present in this function.
+// Addresses range from 0 to 7.
+const st_ds18b20_data_t * fnDS18B20_Get_Data_Pointer ( uint8_t u8_channel );
+
+// Get_Temperature returns a float already in the proper temperature format, of the probe in the channel specified.
+float fnDS18B20_Get_Temperature ( uint8_t u8_channel );
 
 // The Measure_Start_Blocking_Mode will halt the program's execution until the measurement is complete.
 bool fnDS18B20_Measure_Start_Blocking_Mode ( void );
 
-// The Start_Measure function will begin a new temperature measurement, but will not return anything.
+// The Measure_Start_Callback function will begin a new temperature measurement.
 bool fnDS18B20_Measure_Start_Callback_Mode ( void );
 
 // This Measure_Done_Callback function will be called automatically after the Measure_Start_Callback_Mode function is finished properly.
@@ -102,12 +110,6 @@ void fnDS18B20_Measure_Done_Callback ( void );
 // The two functions below only work properly if either the Measure_Start_Blocking_Mode function
 // was called and finished properly, or if the Measure_Start_Callback_Mode was used and
 // called Measure_Done_Callback automatically.
-
-// Get_Data_Pointer will return the raw data that is in the temperature registers
-const st_ds18b20_data_t * fnDS18B20_Get_Data_Pointer ( void );
-
-// Get_Temperature returns a float already in the proper temperature format.
-float fnDS18B20_Get_Temperature ( void );
 
 
 #endif   /* _DS18B20_H */
