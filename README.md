@@ -145,7 +145,8 @@ This header contains functions for measuring analog input and battery voltage.
 ---
 ### One-Wire Temperature Sensor (DS18B20) <br/> ds18b20.h
 
-Use this header to implement temperature readings using the DS18B20 sensor, with a 1-wire thermometer connected to the analog input connectors.
+Use this header to implement temperature readings using one or more DS18B20 sensors, with the 1-wire thermometers connected to the analog input connectors.
+<br>If more than one probe will be used, please be wary of the process of identifying and initializing them correctly.
 
 To properly use the analog input with the DS18B20 Temperature Sensor, the EDK has to be slightly modified.
 <br>Please refer to the __Board Modifications__ folder to see which components need to be present in each configuration.
