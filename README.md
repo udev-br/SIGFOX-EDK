@@ -4,7 +4,7 @@ uDEV Soluções Tecnológicas Ltda<br>
 SIGFOX Embedded Development Kit (EDK)
 =====================================
 
-* [Introduction](#Introduction)
+* [Introduction](#introduction)
 * [Getting Started](#getting-started)
 * [Connecting your EDK](#connecting-your-edk)
 * [Test programs](#test-programs)
@@ -406,7 +406,7 @@ Check our <b>Thermocouple Example</b> for an example of how to set these paramet
 ## Useful links
 
 * [uDEV website](http://udev.com.br)
-  * Contact for purchasing or designing custom solutions
+  * [Contact for purchasing or designing custom solutions](mailto:contato@udev.com.br)
 * [uDEV EDK at SIGFOX Partners](https://partners.sigfox.com/products/multi-sensor-sigfox-embedded-development-kit-edk)
 * [Atmel Studio download page](http://www.atmel.com/microsite/atmel-studio/)
 * [Microchip SAM-BA download page](http://www.microchip.com/DevelopmentTools/ProductDetails.aspx?PartNO=Atmel%20SAM-BA%20In-system%20Programmer)
