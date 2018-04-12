@@ -14,7 +14,7 @@ SIGFOX Embedded Development Kit (EDK)
     * [One-Wire Temperature Sensor (DS18B20)](#one-wire-temperature-sensor-ds18b20--ds18b20h)
     * [Emulated EEPROM Memory](#eepromflash_eepromh)
     * [Events](#eventseventsh)
-    * [6-Axis Sensor with Linear Accelerometer and Magnetometer (FXOS8700CQ)](#6-axis-sensor-with-linear-accelerometer-and-magnetometer-fxos8700cqfxos8700cqh)
+    * [6-Axis Sensor with Linear Accelerometer and Magnetometer (FXOS8700CQ)](#6-axis-sensor-with-linear-accelerometer-and-magnetometer-fxos8700cqfxos8700cqh)<sup>1</sup>
     * [General-Purpose Input/Output (GPIO)](#general-purpose-inputoutput-gpio--gpioh)
     * [Real-Time Clock (RTC)](#real-time-clock-rtc--rtch)
     * [Ambient Light Sensor (SI1133)](#light-sensor-si1133si1133h)
@@ -23,8 +23,10 @@ SIGFOX Embedded Development Kit (EDK)
     * [USB and Debugging](#usb-and-debugging)
     	* [Console_USB.h](#console_usbh)
     	* [Debug.h](#debugh)
-    * [Thermocouple Input (MCP9600)](#thermocouple-inputmcp9600h)
+    * [Thermocouple Input (MCP9600)](#thermocouple-inputmcp9600h)<sup>1</sup>
 * [Useful Links](#useful-links)
+
+<sup>1</sup> _Optional sensors. Check availability before purchasing._
 
 ## Introduction
 
@@ -138,7 +140,7 @@ This header contains functions for measuring analog input and battery voltage.
 | fnINPUT_ANALOGIC_Init() | Initializes the analog input component. | None | None |
 | fnINPUT_ANALOGIC_Read_Value (_en_input_analogic_definition_t_ __en_input__,<br> _uint16_t_ * __p_adc_raw__,<br> _uint16_t_ * __p_adc_mv__) | Returns the value measured in the analog input or the battery voltage. | __en_input__: Defines what to measure. <br><b>INPUT_ANALOGIC_DEFINITION_VBAT</b> for battery voltage;<br><b>INPUT_ANALOGIC_DEFINITION_4_20_MA</b> for analog input voltage; <br>__p_adc_raw__: A pointer to the value that contains the raw value converted by the analog-digital converter (ADC); <br>__p_adc_mv__: A pointer to the value that has the value converted by the ADC, in volts (V); | None<sup><a name="1analogup">[1](#1analog)</a></sup> |
 
-<sup><a name="1analog">[1](#1analogup)</a></sup><sub><i>This function returns the values via pointers. Define two __uint16_t__ variables, and assign their addresses to the function parameters. The variable values will contain the results.</i></sub>
+<sup><a name="1analog">[1](#1analogup)</a></sup><sub><i>This function returns the values via pointers. Define two __uint16_t__ variables, and assign their addresses to the function parameters. These variables' values will contain the results.</i></sub>
 
 <sub>[Back to top](#top)</sub>
 
@@ -247,6 +249,8 @@ This file contains functions to read both the integrated accelerometer and magne
 * _int16_t_ __i16_converted_y__
 * _int16_t_ __i16_converted_z__
 Depending on which function was called to return it, he struct will contain data for each axis of either the accelerometer or the magnetometer.
+
+_Be aware that not all EDK models include the 6-axis sensor. Please check which version you require prior to purchasing._
 
 <sub>[Back to top](#top)</sub>
 
@@ -400,6 +404,8 @@ The <b>pst_mcp9600_config</b> struct contains four (4) enumerations with paramet
 | en_thermocouple_type | Type of thermocouple used. | MCP9600_TYPE_K<br>MCP9600_TYPE_J<br>MCP9600_TYPE_T<br>MCP9600_TYPE_N<br>MCP9600_TYPE_S<br>MCP9600_TYPE_E<br>MCP9600_TYPE_B<br>MCP9600_TYPE_R |
 
 Check our <b>Thermocouple Example</b> for an example of how to set these parameters.
+
+_Please be aware that not all EDK models include the Thermocouple controller and its input connectors. Please check which version you require prior to purchasing._
 
 <sub>[Back to top](#top)</sub>
 
