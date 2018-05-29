@@ -207,11 +207,6 @@ typedef union {
 } un_mcp9600_device_config_t;
 
 
-// This struct contains information about the current
-// thermocouple device. You can set this in the fnUSER_Setup
-// function in user.c.
-// Valid values are above, for each one of the struct's Data section.
-
 typedef struct {
 
    en_mcp9600_adc_measurement_resolution_bits_t en_adc_res_bits;
@@ -236,9 +231,9 @@ typedef struct {
 
 /* Data */
    bool b_valid_data;
-   float f_thermocouple_temperature;
-   float f_junction_temperature_delta;
-   float f_cold_junction_temperature;
+   int32_t i32_thermocouple_temperature;
+   int16_t i16_junction_temperature_delta;
+   int16_t i16_cold_junction_temperature;
    int32_t i32_raw_adc_data;
 
 } st_mcp9600_data_t;
@@ -248,27 +243,15 @@ typedef struct {
 /*    EXTERNAL PROTOTYPES                                                                        */
 /*************************************************************************************************/
 
-// This function initializes the thermocouple controller
-bool fnMCP9600_Init ( void );
 
-// This function configures the thermocouple with the options stored
-// in a struct, defined as the st_mcp9600_config_t above.
+bool fnMCP9600_Init ( void );
 bool fnMCP9600_Config ( st_mcp9600_config_t * pst_mcp9600_config );
 
-// The Get_Data_Pointer returns a pointer to the raw data acquired
-// in the device's register.
 const st_mcp9600_data_t * fnMCP9600_Get_Data_Pointer ( void );
+int32_t fnMCP9600_Get_Temperature ( void );
 
-// Get_Temperature returns a float in degrees celsius, indicating
-// temperature in a proper format.
-float fnMCP9600_Get_Temperature ( void );
-
-// This function begins a new measurement, in Blocking Mode.
 bool fnMCP9600_Measure_Start_Blocking_Mode ( void );
 
-// These functions are used, respectively, for initiating
-// a new measurement on the thermocouple, and being called
-// automatically after the measurement is complete.
 bool fnMCP9600_Measure_Start_Callback_Mode ( void );
 void fnMCP9600_Measure_Done_Callback ( void );
 

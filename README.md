@@ -389,7 +389,7 @@ The input connectors labeled "Therm" are meant to be used with thermocouple conn
 | fnMCP9600_Measure_Start_Callback_Mode() | Starts a measurement in _Callback Mode_. | None | bool<sup><a name="2thermoup">[2](#2thermo)</a></sup> |
 | fnMCP9600_Measure_Done_Callback() | This function is called automatically when a measurement in _Callback Mode_ is complete. | None | None |
 | fnMCP9600_Get_Data_Pointer() | Returns a pointer to the entire raw data struct obtained from the device. | None | _const_ __st_mcp9600_data_t__ |
-| fnMCP9600_Get_Temperature() | Returns a _float_ with the temperature value measured in the thermocouple, in degrees celsius. | None | _float_ |
+| fnMCP9600_Get_Temperature() | Returns an _int32_t_ with the temperature value measured in the thermocouple, in hundreds of degrees celsius. You have to divide the resulting value by a factor of 100 to obtain the correct decimal value in degrees celsius. | None | _int32_t_ |
 
 <sup><a name="1thermo">[1](#1thermoup)</a></sup><i><sub>Returns <b>true</b> when the function finishes without error.</sub>
 <br><sup><a name="2thermo">[2](#2thermoup)</a></sup><sub>Returns <b>true</b> after the Measure_Done_Callback function is called successfully.</sub></i>

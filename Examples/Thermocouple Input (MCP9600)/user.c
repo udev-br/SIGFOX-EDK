@@ -91,7 +91,7 @@ void fnMCP9600_Measure_Done_Callback ( void )
    if ( fnMCP9600_Get_Data_Pointer()->un_last_error.u8_value == 0 )
    {
       fnDEBUG_Const_String( "Status OK \r\n" );
-      fnDEBUG_Uint16_Value( "Temp: ", (fnMCP9600_Get_Temperature())*100, " C; \r\n");
+      fnDEBUG_Int32_Value( "Temp: ", (fnMCP9600_Get_Temperature()), " C; \r\n");
    }
    else if ( fnMCP9600_Get_Data_Pointer()->un_last_error.u8_value != 0 )
    {
