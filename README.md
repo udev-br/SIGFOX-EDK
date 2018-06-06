@@ -83,15 +83,14 @@ or you'll risk writing over the bootloader!</b>
 ## Test Programs
 
 In this repository you'll find many example files, to run and test your EDK board.
-<br>Use the static library we generated from our board configuration files to run your tests. _(Link to be available soon. If needed, send a request to [contato@udev.com.br](mailto:contato@udev.com.br) and we'll do our best to accomodate your needs.)_
+<br>Use the static library we generated from our board configuration files to run your tests. _(Link to be available soon. To obtain the library for now, please send a request to [contato@udev.com.br](mailto:contato@udev.com.br) and we'll do our best to accomodate your needs.)_
 
 We have created a generic __template__ for Atmel Studio 7.0, so that you can quickly create projects for the uDEV Sigfox EDK, without needing to choose the type of processor and set all the parameters every time.
 <br>The process of installing templates in Atmel Studio is described at length in our __full manual__, please refer to it as a step-by-step guide if needed.
 
-We will make available a zipped folder that includes all of our headers, and the library needed to compile and execute applicatons.
+We will make available a zipped folder that includes all of our headers needed to compile and execute applicatons.
 <br>You'll need to extract the contents of said .ZIP to the /sdk/ directory that will be created within your project, and then add the Library to Atmel Studio. Use our manual on a step-by-step guide for how to add libraries to a project.
 <br>Also available is a LED Example Template, which you can use to quickly operate the LED in your board, testing it without having to add any other headers to the project, aside from the static library.
-
 
 The files in the /Example/ folder in this GitHub contains all you need to run the program immediately, provided your EDK is connected in _Bootloader Mode_. Simply download the folder of which example you want to install, and open the __.cproj__ file. Atmel Studio will generate a new solution for your example, and you will be able to run it.
 <br>Feel free to modify the program as you desire, to fit your testing needs.
