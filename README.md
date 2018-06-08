@@ -57,7 +57,7 @@ When writing your application, it is of utmost importance to pay attention to it
 <br>Refer to our full manual for a guide for installing and using your EDK with SAM-BA.
 <br>You will need our static library to build your code. The latest release available can be found [in the Library folder in this repository](/Library).
 
-__Instructions on how to change your program's memory address, install and use SAM-BA are in our full manual, available at this GitHub page.__
+__Instructions on how to change your program's memory address, install and use SAM-BA are in our full manual, available in this repository.__
 
 Note that addressing instructions are available only for Atmel Studio 7.0.
 <br>In this manual you will also find information on each sensor, along with their datasheets and full specifications.
