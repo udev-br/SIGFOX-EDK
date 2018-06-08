@@ -30,7 +30,7 @@ SIGFOX Embedded Development Kit (EDK)
 
 ## Introduction
 
-This is a repository for examples and source code (excluding libraries and sensitive information) regarding the uDEV Embedded Development Kit (EDK), a multi-sensor board designed for developers and users who wish to create quick and complete solutions without the need for additional sensors.
+This is a repository for examples and source code (excluding source code for our library and sensitive information) regarding the uDEV Embedded Development Kit (EDK), a multi-sensor board designed for developers and users who wish to create quick and complete solutions without the need for additional sensors.
 <br>The EDK is distributed through the [SIGFOX Partners network](https://partners.sigfox.com/products/multi-sensor-sigfox-embedded-development-kit-edk), and available to purchase [directly from us](http://udev.com.br/).
 
 ![](images/j8x2xtnp-300px.jpg)
@@ -39,7 +39,7 @@ This is a repository for examples and source code (excluding libraries and sensi
 To contact us directly, please send an e-mail to [contato@udev.com.br](mailto:contato@udev.com.br).
 
 We have made available files that can be used to test your board, or as templates for bigger projects.
-<br>These examples can be used to read the value of each sensor on the board, and from there you can develop your program and start using your EDK. 
+<br>These [examples](Examples/) can be used to read the value of each sensor on the board, and from there you can develop your own program and start using your EDK. 
 
 <sub>[Back to top](#top)</sub>
 
@@ -55,8 +55,7 @@ When writing your application, it is of utmost importance to pay attention to it
 <br><u>Your program __MUST__ be built with its Flash Memory address starting at 0x6000. Lower addresses are reserved for our Bootloader.</u>
 <br>To write any program on the board via USB, you may use SAM-BA (version 2.16 or 2.17 are guaranteed to work).
 <br>Refer to our full manual for a guide for installing and using your EDK with SAM-BA.
-<br>You will need our static library (a file with the extension __.a__).
-<br>__The link to the library will be available soon. To obtain the library for now, please send a request to [contato@udev.com.br](mailto:contato@udev.com.br) and we'll do our best to accomodate your needs.__
+<br>You will need our static library to build your code. The latest release available can be found [in the Library folder in this repository](/Library).
 
 __Instructions on how to change your program's memory address, install and use SAM-BA are in our full manual, available at this GitHub page.__
 
@@ -86,7 +85,7 @@ or you'll risk writing over the bootloader!</b>
 
 In this repository you'll find many example files, to run and test your EDK board.
 <br>Use the static library we generated from our board configuration files to run your tests.
-<br>__The link to the library will be available soon. To obtain the library for now, please send a request to [contato@udev.com.br](mailto:contato@udev.com.br) and we'll do our best to accomodate your needs.__
+<br>__The latest version of the library can be found [in the Library folder in this repository](/Library).__
 
 We have created a generic __template__ for Atmel Studio 7.0, so that you can quickly create projects for the uDEV Sigfox EDK, without needing to choose the type of processor and set all the parameters every time.
 <br>The process of installing templates in Atmel Studio is described at length in our __full manual__, please refer to it as a step-by-step guide if needed.
@@ -95,7 +94,7 @@ We will make available a zipped folder that includes all of our headers needed t
 <br>You'll need to extract the contents of said .ZIP to the /sdk/ directory that will be created within your project, and then add the Library to Atmel Studio. Use our manual on a step-by-step guide for how to add libraries to a project.
 <br>Also available is a LED Example Template, which you can use to quickly operate the LED in your board, testing it without having to add any other headers to the project, aside from the static library.
 
-The files in the /Example/ folder in this GitHub contains all you need to run the program immediately, provided your EDK is connected in _Bootloader Mode_. Simply download the folder of which example you want to install, and open the __.cproj__ file. Atmel Studio will generate a new solution for your example, and you will be able to run it.
+Apart from the static library, the files in the [Example folder](/Example) in this repository contain all you will need to run the program immediately, provided your EDK is connected in _Bootloader Mode_. Simply download the folder of which example you want to install, add the static library to the correct path, and open the __.cproj__ file. Atmel Studio will generate a new solution for your example, and you will be able to run it.
 <br>Feel free to modify the program as you desire, to fit your testing needs.
 
 <sub>[Back to top](#top)</sub>
