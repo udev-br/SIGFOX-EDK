@@ -94,7 +94,7 @@ We will make available a zipped folder that includes all of our headers needed t
 <br>You'll need to extract the contents of said .ZIP to the /sdk/ directory that will be created within your project, and then add the Library to Atmel Studio. Use our manual on a step-by-step guide for how to add libraries to a project.
 <br>Also available is a LED Example Template, which you can use to quickly operate the LED in your board, testing it without having to add any other headers to the project, aside from the static library.
 
-Apart from the static library, the files in the [Example folder](/Example) in this repository contain all you will need to run the program immediately, provided your EDK is connected in _Bootloader Mode_. Simply download the folder of which example you want to install, add the static library to the correct path, and open the __.cproj__ file. Atmel Studio will generate a new solution for your example, and you will be able to run it.
+Apart from the static library, the files in the [Example folder](/Examples) in this repository contain all you will need to run the program immediately, provided your EDK is connected in _Bootloader Mode_. Simply download the folder of which example you want to install, add the static library to the correct path, and open the __.cproj__ file. Atmel Studio will generate a new solution for your example, and you will be able to run it.
 <br>Feel free to modify the program as you desire, to fit your testing needs.
 
 <sub>[Back to top](#top)</sub>
