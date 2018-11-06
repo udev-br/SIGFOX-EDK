@@ -51,7 +51,11 @@ We recommend having the following software to work on your EDK:
 * A terminal software of your choice
 Check our [useful links section](#useful-links) to find where to obtain these.
 
-When writing your application, it is of utmost importance to pay attention to its memory addressing.
+__Before you start developing with Atmel Studio, be sure to check our Manual on how to install the _processor files_, so your project compiles correctly.
+<br>By default, Atmel Studio doesn't install the files for every and each processor, so your application will say you don't have the "samd21.h" file included.
+<br>After installing the SAM D21 processor family with the _device pack manager_ on Atmel, this problem is solved. More details on our [manual](/Manual).__
+
+When writing your application, you also have to pay attention to its memory addressing.
 <br><u>Your program __MUST__ be built with its Flash Memory address starting at 0x6000. Lower addresses are reserved for our Bootloader.</u>
 <br>To write any program on the board via USB, you may use SAM-BA (version 2.16 or 2.17 are guaranteed to work).
 <br>Refer to our full manual for a guide for installing and using your EDK with SAM-BA.
